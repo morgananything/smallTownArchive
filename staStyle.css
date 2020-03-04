@@ -77,6 +77,11 @@ header{
     height: 100%;
 }
 
+#blogRecent{
+    background-color: rgb(255, 255, 255);
+    margin-left: 0;
+    margin: 1em;
+}
 /* generic text- head/text, dark/light/red/grey */
     .headRed{
         color: rgb(188, 55, 12);
