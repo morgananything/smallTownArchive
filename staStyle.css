@@ -3,11 +3,11 @@ body{
     margin: 0;
 }
 
-.grid-container{
+#grid-container{
     display: grid;
-    align-items: center;
-    grid-template-columns: 50% 25% 25%;
-    grid-template-rows: auto 250px auto;
+    grid-template-columns: 48% 24% 24%;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 2%;
 }
 
 *{
@@ -24,8 +24,8 @@ header{
     color: rgb(254, 223, 176);
     margin: 0;
     top: 0;
-    font-size: 150%;
-    grid-gap: 0;
+    grid-column: 1 / span 3;
+    grid-row: 1;
 }
 
 #nav{
@@ -35,7 +35,7 @@ header{
     color: rgb(254, 223, 176);
     margin: 0;
     top: 0;
-    font-size: 150%;
+    font-size: 100%;
     grid-gap: 0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -54,16 +54,27 @@ header{
 
 #aboutUs{
     background-color: rgb(254, 223, 176);
-    margin: 1em;
+    height: 100%;
 }
 
 #blogMenu{
     background-color: rgb(108, 74, 62);
-    margin: 1em;
+    height: 100%;
+    grid-column-gap: 0;
 }
 
 #blogMenu > ul{
     list-style-type: none;
+    float: left;
+}
+
+#blogMenu > ul > li{
+    border-bottom: rgb(0, 0, 0) 1px solid;
+}
+
+#blogRecent{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
 }
 
 /* generic text- head/text, dark/light/red/grey */
@@ -92,12 +103,41 @@ header{
         margin-top: 0;
         font-family: 'Cambria', Cochin, Georgia, Times, 'Times New Roman', serif;
     }
+
+    .headGrey{
+        color: rgb(65, 65, 65);
+        margin: 0;
+        font-style: italic;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .textGrey{
+        color: rgb(65, 65, 65);
+        margin-top: 0;
+        font-family: 'Cambria', Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .headDark{
+        color: rgb(108, 74, 62);
+        margin: 0;
+        font-style: italic;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .textDark{
+        color: rgb(108, 74, 62);
+        margin-top: 0;
+        font-family: 'Cambria', Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
 /* changing display for ipad and up (n>501px) and pixel 2XL and down (n<500px) */
 
 @media screen and (min-width: 501px) { /* ipad up */
+    #grid-container{
+        column-gap: 0%;
+    }
     #welcome {
-     position: relative;
-     left: -7em;
+        position: relative; 
+        left: -7em;
     }
     #aboutUs {
         grid-column: 1;
@@ -107,10 +147,13 @@ header{
         position: relative;
         grid-column: 2;
         grid-row: 2;
+        justify-self: right;
+        height: max-content;
     }
     #blogRecent{
         grid-column: 3;
         grid-row: 2;
+        justify-self: left;
     }
  }
  
@@ -118,7 +161,30 @@ header{
  
  @media screen and (max-width: 500px) { /* pixel 2XL down */
     #welcome {
-     position: relative;
-     text-align: center;
-  }
+        position: relative;
+        text-align: center;
+    }
+    #top{
+        font-size: small;
+    }
+    #grid-container{
+        display: grid;
+        align-items: center;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+    }
+    #aboutUs{
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+    #blogMenu{
+        grid-column: 1;
+        grid-row: 3;
+        width: 100%;
+    }
+    #blogRecent{
+        grid-column: 2;
+        grid-row: 3;
+        width: 100%;
+    }
 }
