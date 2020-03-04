@@ -126,11 +126,12 @@ header{
      position: relative;
      text-align: center;
   }
-    body{
+    .grid-container{
     display: grid;
-    grid-template-column: 50% 50%;
-    grid-template-row: auto auto;
-  }
+    align-items: center;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: auto 250px auto;
+}
     #aboutMe{
     grid-column: 1 / span 2;
     grid-row: 2;
